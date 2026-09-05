@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; worker-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://api.counterapi.dev; form-action 'none'; base-uri 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Shrinkray | Free In-Browser Video Compressor</title>
+  <meta name="description" content="Shrinkray is a free, fast, and private video compressor that runs entirely in your browser. Shrink MP4, WebM, and MOV files to exact target sizes with zero cloud uploads.">
+  <meta name="keywords" content="video compressor, compress video, reduce video size, free video compressor, in-browser compression, webcodecs">
+  <meta name="theme-color" content="#0d0e14">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shrinkray.pixelabs.net">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shrinkray.pixelabs.net">
+  <meta property="og:site_name" content="Shrinkray by PixeLabs">
+  <meta property="og:title" content="Shrinkray | Free In-Browser Video Compressor">
+  <meta property="og:description" content="Hardware-accelerated video compression directly in your browser. Fast, private, and zero cloud uploads.">
+  <meta property="og:image" content="https://shrinkray.pixelabs.net/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://shrinkray.pixelabs.net">
+  <meta name="twitter:title" content="Shrinkray | Free In-Browser Video Compressor">
+  <meta name="twitter:description" content="Hardware-accelerated video compression directly in your browser. Fast, private, and zero cloud uploads.">
+  <meta name="twitter:image" content="https://shrinkray.pixelabs.net/assets/og-image.jpg">
+
+  <link rel="preload" as="font" href="assets/fonts/jost-latin-variable.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="assets/fonts/jetbrains-mono-latin-variable.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="bg-aurora" aria-hidden="true">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="blob blob-c"></div>
+</div>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="./">
+      <span class="brand-icon" aria-hidden="true">
+        <!-- Brand Icon -->
+        <svg viewBox="0 0 24 24" fill="none" width="24" height="24" style="filter: drop-shadow(0 0 8px rgba(0,240,255,0.6));">
+          <path d="M12 2L2 12L12 22L22 12L12 2Z" stroke="var(--cyan)" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M12 6L6 12L12 18L18 12L12 6Z" fill="url(#brand-grad)" />
+          <defs>
+            <linearGradient id="brand-grad" x1="12" y1="6" x2="12" y2="18" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="var(--pink)" />
+              <stop offset="100%" stop-color="var(--violet)" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-name" aria-label="Shrinkray"><span class="d-shrink">SHRINK</span><span class="d-ray">RAY</span></span>
+    </a>
+    <nav class="site-nav">
+      <a href="#why">How it works</a>
+      <a href="#local">100% Private</a>
+      
+      <!-- GitHub Icon -->
+      <a href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener" class="icon-link is-cta" aria-label="GitHub Repository" title="Source Code">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+      </a>
+
+      <!-- Pixelabs Colorful Icon -->
+      <a href="https://pixelabs.net" target="_blank" rel="noopener" class="icon-link is-cta pixelabs-link" aria-label="Pixelabs Website" title="Pixelabs">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" style="filter: drop-shadow(0 0 8px rgba(0,240,255,0.8));">
+          <defs>
+            <linearGradient id="pxl-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--cyan)" />
+              <stop offset="50%" stop-color="var(--violet)" />
+              <stop offset="100%" stop-color="var(--pink)" />
+            </linearGradient>
+          </defs>
+          <path d="M12 2L2 12l10 10 10-10L12 2z" stroke="url(#pxl-grad-2)" stroke-width="2.5" stroke-linejoin="round" fill="rgba(190,72,224,0.1)"/>
+          <circle cx="12" cy="12" r="3" fill="var(--acid)" filter="drop-shadow(0 0 6px var(--acid))"/>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ========================================================
+       Hero
+       ======================================================== -->
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="wordmark wm-duotone" aria-label="Shrinkray">
+        <span class="d-shrink">SHRINK</span><span class="d-ray">RAY</span>
+      </h1>
+
+      <span class="hero-tag mono">
+        <span class="tag-dot" aria-hidden="true"></span>
+        Client-Side Video Engine
+      </span>
+
+      <div class="hero-rule" aria-hidden="true"></div>
+
+      <p class="hero-sub">Fast, hardware-accelerated video compression in your browser.</p>
+      <p class="hero-lede">
+        Reduce large video files to your target size in seconds with high fidelity.
+        Processed entirely on your device with zero cloud uploads.
+      </p>
+
+      <div class="hero-facts">
+        <span class="fact mono">Hardware Accelerated</span>
+        <span class="fact mono">Zero Cloud Uploads</span>
+        <span class="fact mono">Target Size Control</span>
+        <span class="fact mono">Multi-Format Support</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Stage 1 - drop
+       ======================================================== -->
+  <section class="section section--tight" id="stage-drop">
+    <div class="wrap">
+      <div class="counter-showcase" id="hero-counter" style="opacity: 0;">
+        <div class="counter-pill">
+          <span class="counter-digits mono" id="counter-val"></span>
+          <span class="counter-title" id="counter-title-wrap">Videos Shrunk</span>
+          <span class="counter-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28" width="32" height="32" fill="none">
+              <defs>
+                <linearGradient id="rg-body" x1="4" y1="20" x2="16" y2="8" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="var(--pink)" />
+                  <stop offset="100%" stop-color="var(--violet)" />
+                </linearGradient>
+              </defs>
+              <!-- Handle / Grip -->
+              <path d="M6 22.5C5.5 22.5 5.1 22 5.3 21.3L7.2 15H10.2L8.3 21.8C8.1 22.2 7.7 22.5 7.2 22.5H6Z" fill="url(#rg-body)"/>
+              <!-- Trigger Guard -->
+              <path d="M9.5 16C9.5 17.5 11 17.8 11.8 16.8" stroke="var(--pink)" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+              <!-- Blaster Chamber -->
+              <rect x="7" y="9" width="8" height="6.5" rx="2.5" fill="url(#rg-body)" stroke="var(--cyan)" stroke-width="1"/>
+              <!-- Power Core Bulb -->
+              <circle cx="11" cy="12.2" r="1.4" fill="var(--acid)" filter="drop-shadow(0 0 4px var(--acid))"/>
+              <!-- Coils & Emitter Nozzle -->
+              <rect x="15" y="10.2" width="2.2" height="4.1" rx="0.8" fill="var(--cyan)"/>
+              <rect x="18" y="10.8" width="2" height="3" rx="0.7" fill="var(--acid)"/>
+              <path d="M20.5 9.2C21 10.3 21.3 11.3 21.3 12.2C21.3 13.1 21 14.1 20.5 15.2" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <!-- Concentric Shrink Ray Rings -->
+              <ellipse cx="23.5" cy="12.2" rx="1.2" ry="3.2" stroke="var(--pink)" stroke-width="1.3" fill="none" opacity="0.95"/>
+              <ellipse cx="26" cy="12.2" rx="1.4" ry="4.5" stroke="var(--acid)" stroke-width="1.4" fill="none" filter="drop-shadow(0 0 5px var(--acid))"/>
+            </svg>
+          </span>
+        </div>
+        <a href="privacy.html#anonymous-counter" class="counter-caption mono" title="Learn how we count completely anonymously via CounterAPI">
+          Counted 100% anonymously via CounterAPI ↗
+        </a>
+      </div>
+
+      <div class="console">
+        <div class="console-bar">
+          <span class="mono label"><i class="dot"></i>Start here</span>
+          <span class="mono" id="engine-badge">Checking browser…</span>
+        </div>
+        <div class="console-body">
+          <label class="drop" id="drop" for="file" tabindex="0" role="button"
+               aria-label="Choose a video file to compress">
+            <div>
+              <div class="drop-icon" aria-hidden="true">
+              <!-- Drop Zone Icon -->
+              <svg viewBox="0 0 48 48" fill="none" width="48" height="48" style="filter: drop-shadow(0 0 12px rgba(255,20,147,0.4));">
+                <rect x="4" y="4" width="40" height="40" rx="4" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="6 6"/>
+                <path d="M24 14V34M16 26L24 34L32 26" stroke="var(--pink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+              <p class="drop-title">Drop a video here</p>
+              <p class="drop-sub">or click to pick one, or paste from clipboard</p>
+              <p class="drop-formats mono">MP4 · MOV · WebM · MKV · AVI · TS · M4V</p>
+            </div>
+          </label>
+          <input type="file" id="file" accept="video/*,.mp4,.mov,.m4v,.webm,.mkv,.avi,.ts,.mts" class="visually-hidden">
+
+          <p class="notice" id="unsupported" hidden>
+            <strong>This browser does not support WebCodecs.</strong>
+            Shrinkray needs a fairly recent browser to reach your machine's video
+            chip. Chrome, Edge, or Safari&nbsp;16.4 and up will all work.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Stage 2 - setup
+       ======================================================== -->
+  <section class="section section--tight" id="stage-setup" hidden>
+    <div class="wrap">
+      <div class="setup">
+
+        <!-- source -->
+        <div class="console">
+          <div class="console-bar">
+            <span class="mono label"><i class="dot"></i>Your video</span>
+            <button class="linkish" id="change-file" type="button">Change</button>
+          </div>
+          <div class="console-body">
+            <p class="filename" id="src-name">-</p>
+            <dl class="facts-list" id="src-facts"></dl>
+          </div>
+        </div>
+
+        <!-- controls -->
+        <div class="console">
+          <div class="console-bar">
+            <span class="mono label"><i class="dot"></i>How small?</span>
+          </div>
+          <div class="console-body">
+
+            <div class="tabs" role="tablist" aria-label="Compression mode">
+              <button role="tab" type="button" class="tab is-on" data-mode="size"
+                      aria-selected="true">Fit a size</button>
+              <button role="tab" type="button" class="tab" data-mode="quality"
+                      aria-selected="false">Pick a quality</button>
+            </div>
+
+            <!-- size mode -->
+            <div class="mode-pane" id="pane-size">
+              <p class="field-label mono">Squeeze it under</p>
+              <div class="chips-row" id="size-presets">
+                <button type="button" class="chip-btn" data-mb="10">Chat · 10 MB</button>
+                <button type="button" class="chip-btn is-on" data-mb="16">Social · 16 MB</button>
+                <button type="button" class="chip-btn" data-mb="20">Email · 20 MB</button>
+                <button type="button" class="chip-btn" data-mb="100">Web · 100 MB</button>
+              </div>
+              <div class="custom-size">
+                <input type="number" id="size-mb" min="0.2" step="0.1" value="16"
+                       aria-label="Target size in megabytes">
+                <span class="unit mono">MB</span>
+              </div>
+            </div>
+
+            <!-- quality mode -->
+            <div class="mode-pane" id="pane-quality" hidden>
+              <p class="field-label mono">How good should it look?</p>
+              <div class="ladder" id="quality-steps">
+                <button type="button" class="step" data-q="very-low"><i></i>Tiny</button>
+                <button type="button" class="step" data-q="low"><i></i>Low</button>
+                <button type="button" class="step is-on" data-q="medium"><i></i>Mid</button>
+                <button type="button" class="step" data-q="high"><i></i>High</button>
+                <button type="button" class="step" data-q="very-high"><i></i>Max</button>
+              </div>
+              <p class="hint" id="quality-hint">
+                A sensible middle. About what a streaming service would send you.
+              </p>
+            </div>
+
+            <div class="knobs">
+              <label class="knob">
+                <span class="field-label mono">Resolution</span>
+                <select id="res">
+                  <option value="auto" selected>Auto</option>
+                  <option value="0">Keep original</option>
+                  <option value="2160">2160p · 4K</option>
+                  <option value="1440">1440p</option>
+                  <option value="1080">1080p</option>
+                  <option value="720">720p</option>
+                  <option value="480">480p</option>
+                  <option value="360">360p</option>
+                </select>
+              </label>
+
+              <label class="knob">
+                <span class="field-label mono">Frame rate</span>
+                <select id="fps">
+                  <option value="auto" selected>Auto</option>
+                  <option value="0">Keep original</option>
+                  <option value="60">60 fps</option>
+                  <option value="30">30 fps</option>
+                  <option value="24">24 fps</option>
+                  <option value="15">15 fps</option>
+                </select>
+              </label>
+
+              <label class="knob">
+                <span class="field-label mono">Sound</span>
+                <select id="audio">
+                  <option value="keep" selected>Keep it</option>
+                  <option value="drop">Drop it</option>
+                </select>
+              </label>
+
+              <label class="knob">
+                <span class="field-label mono">Codec</span>
+                <select id="codec">
+                  <option value="avc" selected>H.264 · plays anywhere</option>
+                  <option value="hevc">H.265 · smaller</option>
+                  <option value="av1">AV1 · smallest</option>
+                  <option value="vp9">VP9</option>
+                </select>
+              </label>
+            </div>
+
+            <p class="warn-line" id="codec-warn" hidden></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan">
+        <div class="plan-read" id="plan-read"></div>
+        <button class="btn btn--go" id="go" type="button">Shrink it</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Stage 3 - running
+       ======================================================== -->
+  <section class="section section--tight" id="stage-run" hidden>
+    <div class="wrap">
+      <div class="run-wrap">
+        <div class="console">
+          <div class="console-bar">
+            <span class="mono label"><i class="dot"></i>Squeezing…</span>
+            <span class="mono" id="run-pass"></span>
+          </div>
+          <div class="console-body">
+            <canvas class="preview-canvas" id="preview" width="480" height="270"></canvas>
+            <div class="meter" id="meter" role="progressbar"
+                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+            <div class="run-stats">
+              <div><span class="mono">Done</span><b id="st-pct">0%</b></div>
+              <div><span class="mono">Video time</span><b id="st-time">0:00</b></div>
+              <div><span class="mono">Elapsed</span><b id="st-elapsed">0:00</b></div>
+              <div><span class="mono">Speed</span><b id="st-speed">-</b></div>
+            </div>
+
+            <button class="btn" id="cancel" type="button">Never mind, stop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Stage 4 - done
+       ======================================================== -->
+  <section class="section section--tight" id="stage-done" hidden>
+    <div class="wrap">
+      <div class="result-wrap">
+        <div class="console">
+          <div class="console-bar">
+            <span class="mono label"><i class="dot"></i>All done</span>
+            <span class="mono" id="result-passes"></span>
+          </div>
+          <div class="console-body">
+
+            <div class="ba">
+              <div class="ba-side">
+                <span class="mono">Was</span>
+                <b id="ba-before">-</b>
+                <em id="ba-before-meta"></em>
+              </div>
+              <div class="ba-mid" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                  <path d="M4 4.5L10.5 12L4 19.5" stroke="var(--pink)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9.5 6.5L15 12L9.5 17.5" stroke="var(--violet)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 8.5L18.5 12L15 15.5" stroke="var(--cyan)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="20.5" cy="12" r="1.5" fill="var(--acid)"/>
+                </svg>
+              </div>
+              <div class="ba-side ba-after">
+                <span class="mono">Now</span>
+                <b id="ba-after">-</b>
+                <em id="ba-after-meta"></em>
+              </div>
+            </div>
+
+            <p class="ratio-line"><span class="tag tag--win" id="ratio">-</span></p>
+
+            <p class="result-note" id="result-note"></p>
+
+            <video class="result-video" id="result-video" controls playsinline></video>
+
+            <div class="result-actions">
+              <a class="btn btn--go" id="download" download>Save it</a>
+              <button class="btn" id="retry" type="button">Retry same file</button>
+              <button class="btn" id="again" type="button">Choose another</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- error -->
+  <section class="section section--tight" id="stage-error" hidden>
+    <div class="wrap">
+      <div class="err-wrap">
+        <div class="console">
+          <div class="console-bar"><span class="mono label"><i class="dot"></i>That didn't work</span></div>
+          <div class="console-body err-body">
+            <p id="err-msg"></p>
+            <div class="result-actions">
+              <button class="btn btn--go" id="err-retry" type="button">Retry same file</button>
+              <button class="btn" id="err-back" type="button">Choose another</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Why so big
+       ======================================================== -->
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How video compression works</h2>
+        <p class="sub">Cameras and screen recorders default to high bitrates that produce files too large for standard messaging limits.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="num mono">01</span>
+          <h3>Uncompressed Bitrates</h3>
+          <p>
+            Default capture modes record excessive redundant visual data every second. While ideal for video production, the resulting files easily exceed transfer limits on most messaging apps and email.
+          </p>
+        </article>
+        <article class="card">
+          <span class="num mono">02</span>
+          <h3>Hardware Acceleration</h3>
+          <p>
+            Your device already features dedicated media silicon designed specifically for fast encoding. Shrinkray taps directly into this hardware via modern WebCodecs for rapid transcoding.
+          </p>
+        </article>
+        <article class="card">
+          <span class="num mono">03</span>
+          <h3>Target Size Accuracy</h3>
+          <p>
+            Choose a target size, and the engine calculates optimal bitrate and resolution ladders, automatically running multi-pass refinement so your file consistently meets size limits.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Where it goes
+       ======================================================== -->
+  <section class="section" id="local">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Local, In-Browser Processing</h2>
+        <p class="sub">All transcoding happens on your device. Your media is never uploaded to remote servers.</p>
+      </div>
+
+      <div class="prose">
+        <p>
+          Traditional online compressors require uploading your videos across the internet to a third-party server, introducing upload queues, bandwidth restrictions, and privacy concerns.
+        </p>
+        <p>
+          <strong>Shrinkray operates locally.</strong> The entire compression pipeline executes in your browser using Web Workers and your device's native media encoders, keeping all file processing private and immediate.
+        </p>
+
+        <div class="proof">
+          <h3>Open Source & Inspectable</h3>
+          <p>
+            Shrinkray is completely open source. Video streams are parsed, compressed, and downloaded directly in memory without transmitting file data. You can review the full client-side implementation in our <a href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener">GitHub repository</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       Mediabunny
+       ======================================================== -->
+  <section class="section" id="bunny">
+    <div class="wrap">
+      <div class="bunny">
+        <div class="bunny-mark" aria-hidden="true">
+          <span class="the-bunny">🐰</span>
+          <span class="bunny-heart h-1">💜</span>
+          <span class="bunny-heart h-2">💜</span>
+          <span class="bunny-heart h-3">💜</span>
+        </div>
+        <div class="bunny-text">
+          <h2>It's all thanks to Mediabunny</h2>
+          <p>
+            Shrinkray is built on top of
+            <strong>Mediabunny</strong>, a free, open-source library by
+            <strong>Vanilagy</strong> that handles the genuinely hard parts:
+            parsing whatever format your video arrived in, talking to your
+            browser's video hardware, and writing a proper, playable MP4 back out.
+          </p>
+          <p>
+            We built the interface. Mediabunny does the heavy lifting. If this page just
+            saved you a trip to a sketchy upload site, that's who you have to thank.
+          </p>
+          <p class="bunny-aside">
+            Also, and we say this with total sincerity, <em>Mediabunny</em> is a far
+            better name than anything we came up with. We're a little bit jealous. 🐰
+          </p>
+          <div class="bunny-actions">
+            <a class="btn btn--go" href="https://mediabunny.dev" target="_blank" rel="noopener">
+              Visit mediabunny.dev
+            </a>
+            <a class="btn" href="https://github.com/Vanilagy/mediabunny" target="_blank" rel="noopener">
+              Give it a star
+            </a>
+            <a class="btn" href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener">
+              Drop us one too
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <p class="mono">Built with <span class="heart-pixel">💜</span> by <a href="https://pixelabs.net" target="_blank" rel="noopener">PixeLabs</a><span id="foot-counter" hidden> · <span id="foot-counter-val">0</span> videos shrunk (<a href="privacy.html#anonymous-counter">anonymously</a>)</span></p>
+    <nav class="foot-links mono">
+      <a href="./">Shrink</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://pixelabs.net" target="_blank" rel="noopener">PixeLabs</a>
+      <a href="https://github.com/thepixelabs/shrinkray/blob/master/LICENSE" target="_blank" rel="noopener">MIT</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/app.js" type="module"></script>
+
+<div id="global-drop" class="global-drop" aria-hidden="true">
+  <div class="global-drop-inner">
+    <svg viewBox="0 0 48 48" fill="none" width="80" height="80" style="filter: drop-shadow(0 0 16px rgba(255,20,147,0.5)); margin-bottom: 24px;">
+      <rect x="4" y="4" width="40" height="40" rx="4" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="6 6"/>
+      <path d="M24 14V34M16 26L24 34L32 26" stroke="var(--pink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h2 class="mono">Drop to Replace Video</h2>
+  </div>
+</div>
+
+</body>
+</html>
