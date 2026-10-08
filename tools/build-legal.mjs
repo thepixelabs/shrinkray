@@ -47,8 +47,9 @@ const page = ({ title, desc, out }, body) => `<!doctype html>
   <meta name="color-scheme" content="dark">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${ORIGIN}/${out}">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
   <link rel="preload" as="font" href="assets/fonts/jost-latin-variable.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="assets/fonts/jetbrains-mono-latin-variable.woff2" type="font/woff2" crossorigin>
@@ -65,21 +66,7 @@ const page = ({ title, desc, out }, body) => `<!doctype html>
 <header class="site-head">
   <div class="wrap">
     <a class="brand" href="./">
-      <span class="brand-icon" aria-hidden="true">
-        <svg viewBox="0 0 32 32" fill="none" width="26" height="26" style="filter: drop-shadow(0 0 8px rgba(0,240,255,0.5));">
-          <defs>
-            <linearGradient id="bi-body" x1="3" y1="21" x2="13" y2="10" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FF1493"/><stop offset="1" stop-color="#BE48E0"/></linearGradient>
-          </defs>
-          <path d="M5 19.5h4.6l-2 8.2c-.15.6-.6.9-1.2.9H4.8c-.8 0-1.3-.7-1.1-1.5z" fill="#FF1493"/>
-          <path d="M5.5 11.2L7.5 6.6h3.2l1.2 4.6z" fill="#BE48E0"/>
-          <rect x="2.5" y="10.5" width="11" height="9" rx="3.2" fill="url(#bi-body)" stroke="#00F0FF" stroke-width="1.3"/>
-          <circle cx="8" cy="15" r="2.2" fill="#39FF14"/>
-          <rect x="13" y="12.4" width="8" height="5.2" rx="1.6" fill="#00F0FF"/>
-          <path d="M16 12.4v5.2M18.6 12.4v5.2" stroke="#0d0e14" stroke-width="1.1"/>
-          <path d="M23.2 9.6L26.6 15l-3.4 5.4" stroke="#00F0FF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M27.4 12.2L29.2 15l-1.8 2.8" stroke="#39FF14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </span>
+      <span class="brand-icon" aria-hidden="true"><img src="assets/logo-raygun.png" width="28" height="28" alt=""></span>
       <span class="brand-name" aria-label="Shrinkray"><span class="d-shrink">SHRINK</span><span class="d-ray">RAY</span></span>
     </a>
     <nav class="site-nav">

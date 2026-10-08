@@ -141,6 +141,7 @@ a { color: inherit; }
   filter: drop-shadow(0 0 6px rgba(190, 72, 224, 0.45));
   transition: transform 220ms var(--snap), filter 220ms ease;
 }
+.brand-icon img { display: block; width: 28px; height: 28px; border-radius: 7px; }
 .brand-icon svg {
   display: block;
   width: 22px;
