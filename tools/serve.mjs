@@ -26,6 +26,8 @@ const TYPES = {
   '.txt':  'text/plain; charset=utf-8',
   '.md':   'text/markdown; charset=utf-8',
   '.png':  'image/png',
+  '.jpg':  'image/jpeg',
+  '.xml':  'application/xml; charset=utf-8',
   '.ico':  'image/x-icon',
 };
 

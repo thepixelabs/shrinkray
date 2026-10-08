@@ -15,22 +15,41 @@ import { marked } from 'marked';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
+/* Single-domain static site: keep this in step with CNAME and sitemap.xml. */
+const ORIGIN = 'https://shrinkray.pixelabs.net';
+
+/* Legal pages stay indexable (users search for the policy, and a
+   visible policy is a trust signal) but each carries its own title,
+   description and canonical so none of them competes with the home
+   page. They are low priority in sitemap.xml. */
 const PAGES = [
-  { md: 'legal/terms.md',   out: 'terms.html',   title: 'Terms & EULA' },
-  { md: 'legal/privacy.md', out: 'privacy.html', title: 'Privacy Notice' },
+  {
+    md: 'legal/terms.md', out: 'terms.html',
+    title: 'Terms of Use',
+    desc: 'Terms of use for Shrinkray, the free in-browser video compressor by PixeLabs: how it works, no warranty, and your responsibilities.',
+  },
+  {
+    md: 'legal/privacy.md', out: 'privacy.html',
+    title: 'Privacy Notice',
+    desc: 'How Shrinkray handles data: videos are compressed in your browser and never uploaded, and one anonymous counter tallies finished compressions.',
+  },
 ];
 
-const page = (title, body) => `<!doctype html>
+const page = ({ title, desc, out }, body) => `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>${title} · Shrinkray</title>
-  <meta name="description" content="${title} for Shrinkray, the in-browser video compressor.">
+  <title>${title} | Shrinkray Video Compressor</title>
+  <meta name="description" content="${desc}">
   <meta name="theme-color" content="#0d0e14">
+  <meta name="color-scheme" content="dark">
   <meta name="robots" content="index, follow">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="${ORIGIN}/${out}">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
   <link rel="preload" as="font" href="assets/fonts/jost-latin-variable.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="assets/fonts/jetbrains-mono-latin-variable.woff2" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
@@ -62,8 +81,8 @@ const page = (title, body) => `<!doctype html>
       <span class="brand-name" aria-label="Shrinkray"><span class="d-shrink">SHRINK</span><span class="d-ray">RAY</span></span>
     </a>
     <nav class="site-nav">
-      <a href="./#why">Why so big?</a>
-      <a href="./#local">Where it goes</a>
+      <a href="./#why">How it works</a>
+      <a href="./#local">100% Private</a>
       
       <!-- GitHub Icon -->
       <a href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener" class="icon-link is-cta" aria-label="GitHub Repository" title="Source Code">
@@ -73,7 +92,7 @@ const page = (title, body) => `<!doctype html>
       </a>
 
       <!-- Pixelabs Colorful Icon -->
-      <a href="https://pixelabs.net" target="_blank" rel="noopener" class="icon-link is-cta pixelabs-link" aria-label="Pixelabs Website" title="Pixelabs">
+      <a href="https://pixelabs.net" target="_blank" rel="noopener" class="icon-link is-cta pixelabs-link" aria-label="PixeLabs website" title="PixeLabs">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" style="filter: drop-shadow(0 0 8px rgba(0,240,255,0.8));">
           <defs>
             <linearGradient id="pxl-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -107,7 +126,7 @@ ${body}
       <a href="privacy.html">Privacy</a>
       <a href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener">GitHub</a>
       <a href="https://pixelabs.net" target="_blank" rel="noopener">PixeLabs</a>
-      <a href="https://github.com/thepixelabs/shrinkray/blob/master/LICENSE" target="_blank" rel="noopener">MIT</a>
+      <a href="https://github.com/thepixelabs/shrinkray/blob/master/LICENSE" target="_blank" rel="noopener" aria-label="MIT license">MIT</a>
     </nav>
   </div>
 </footer>
@@ -127,7 +146,7 @@ for (const p of PAGES) {
     continue;
   }
   const html = marked.parse(md);
-  await writeFile(join(ROOT, p.out), page(p.title, html), 'utf8');
+  await writeFile(join(ROOT, p.out), page(p, html), 'utf8');
   console.log(`${p.md} → ${p.out}  (${(html.length / 1024).toFixed(1)} KB)`);
   built++;
 }

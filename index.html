@@ -4,29 +4,155 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; worker-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self' blob:; connect-src 'self' https://api.counterapi.dev; form-action 'none'; base-uri 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Shrinkray | Free In-Browser Video Compressor</title>
-  <meta name="description" content="Shrinkray is a free, fast, and private video compressor that runs entirely in your browser. Shrink MP4, WebM, and MOV files to exact target sizes with zero cloud uploads.">
-  <meta name="keywords" content="video compressor, compress video, reduce video size, free video compressor, in-browser compression, webcodecs">
+  <title>Free Video Compressor: Set Your Size, No Upload | Shrinkray</title>
+  <meta name="description" content="Free video compressor that shrinks MP4, MOV and WebM to a size you pick, like 10, 16 or 20 MB. Runs in your browser, nothing is uploaded.">
   <meta name="theme-color" content="#0d0e14">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://shrinkray.pixelabs.net">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://shrinkray.pixelabs.net/">
 
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" sizes="180x180">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://shrinkray.pixelabs.net">
+  <meta property="og:url" content="https://shrinkray.pixelabs.net/">
   <meta property="og:site_name" content="Shrinkray by PixeLabs">
-  <meta property="og:title" content="Shrinkray | Free In-Browser Video Compressor">
-  <meta property="og:description" content="Hardware-accelerated video compression directly in your browser. Fast, private, and zero cloud uploads.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Free Video Compressor: Set Your Size, No Upload | Shrinkray">
+  <meta property="og:description" content="Shrink a video to the file size you need, right in your browser. Hardware-accelerated, free, and nothing is uploaded.">
   <meta property="og:image" content="https://shrinkray.pixelabs.net/assets/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Shrinkray wordmark in neon cyan and pink with the line Free In-Browser Video Compressor and the tags No uploads, 100% Private, Hardware Accelerated.">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://shrinkray.pixelabs.net">
-  <meta name="twitter:title" content="Shrinkray | Free In-Browser Video Compressor">
-  <meta name="twitter:description" content="Hardware-accelerated video compression directly in your browser. Fast, private, and zero cloud uploads.">
+  <meta name="twitter:url" content="https://shrinkray.pixelabs.net/">
+  <meta name="twitter:title" content="Free Video Compressor: Set Your Size, No Upload | Shrinkray">
+  <meta name="twitter:description" content="Shrink a video to the file size you need, right in your browser. Hardware-accelerated, free, and nothing is uploaded.">
   <meta name="twitter:image" content="https://shrinkray.pixelabs.net/assets/og-image.jpg">
+  <meta name="twitter:image:alt" content="Shrinkray wordmark in neon cyan and pink with the line Free In-Browser Video Compressor and the tags No uploads, 100% Private, Hardware Accelerated.">
+
+  <!-- Structured data (JSON-LD data blocks; not executed, so script-src 'self' is unaffected) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pixelabs.net/#organization",
+      "name": "PixeLabs",
+      "url": "https://pixelabs.net"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://shrinkray.pixelabs.net/#website",
+      "url": "https://shrinkray.pixelabs.net/",
+      "name": "Shrinkray",
+      "description": "A free video compressor that runs in the browser and shrinks a video to a chosen file size without uploading it.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://pixelabs.net/#organization"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://shrinkray.pixelabs.net/#app",
+      "name": "Shrinkray",
+      "url": "https://shrinkray.pixelabs.net/",
+      "description": "Free in-browser video compressor. Shrink a video to a target file size using your device's hardware video encoder, with no upload to any server.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any operating system with a supported web browser",
+      "browserRequirements": "Requires a browser with WebCodecs and Web Workers: Chrome, Edge or Brave 94+, Safari 16.4+, or Firefox 130+.",
+      "isAccessibleForFree": true,
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "image": "https://shrinkray.pixelabs.net/assets/og-image.jpg",
+      "license": "https://github.com/thepixelabs/shrinkray/blob/master/LICENSE",
+      "featureList": [
+        "Compress a video to a target file size, with presets for 10, 16, 20 and 100 MB or any custom size",
+        "Or pick a quality level from Tiny to Max instead of a size",
+        "Choose resolution, frame rate and whether to keep the sound",
+        "Outputs MP4 in H.264, H.265, AV1 or VP9, depending on what your browser can encode",
+        "Reads MP4, MOV, M4V, WebM, MKV and MPEG-TS files",
+        "Hardware-accelerated encoding through WebCodecs",
+        "Re-encodes up to three times to land under the target size",
+        "Runs entirely in the browser, the video is never uploaded"
+      ],
+      "publisher": {
+        "@id": "https://pixelabs.net/#organization"
+      },
+      "author": {
+        "@id": "https://pixelabs.net/#organization"
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I compress a video to 16 MB, 25 MB or 8 MB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drop your video in, stay on \"Fit a size\", and pick a preset (Chat 10 MB, Social 16 MB, Email 20 MB or Web 100 MB) or type any number into the size box, such as 8 or 25. Shrinkray picks a bitrate and resolution to land under that size, and re-encodes up to three times if the first try comes out over. The target has to be smaller than your original file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compress a video for WhatsApp, Discord or email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Pick the size limit of the app you are sending to. Those limits change by app and plan, so check the current number first. The result is an H.264 MP4 by default, which is what most messaging apps expect."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my video uploaded anywhere?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The video is read, compressed and saved on your own device, using your browser's built-in video encoders. The only requests the page makes go to an anonymous counter (CounterAPI) that tallies how many videos have been shrunk, and they carry no video data or file details. The Privacy page has the full detail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What video formats can I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MP4, MOV, M4V, WebM, MKV and MPEG-TS files can go in, as long as your browser can decode the video inside them. An MP4 comes out. It is H.264 by default, with H.265, AV1 and VP9 as options when your browser can encode them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will compressing hurt the quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Making a video smaller always throws away some detail. For tight targets Shrinkray lowers the resolution so the bitrate goes further, and you can set resolution, frame rate and sound yourself, or switch to \"Pick a quality\" and choose from five levels. Watch the result before you delete the original."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it free, and which browsers work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It is free and open source under the MIT license, with no account to make. It needs a browser that supports WebCodecs: Chrome, Edge or Brave 94 and up, Safari 16.4 and up, or Firefox 130 and up. Everything is processed in memory, so very large files also depend on how much memory your device has."
+      }
+    }
+  ]
+}
+  </script>
+
 
   <link rel="preload" as="font" href="assets/fonts/jost-latin-variable.woff2" type="font/woff2" crossorigin>
   <link rel="preload" as="font" href="assets/fonts/jetbrains-mono-latin-variable.woff2" type="font/woff2" crossorigin>
@@ -70,7 +196,7 @@
       </a>
 
       <!-- Pixelabs Colorful Icon -->
-      <a href="https://pixelabs.net" target="_blank" rel="noopener" class="icon-link is-cta pixelabs-link" aria-label="Pixelabs Website" title="Pixelabs">
+      <a href="https://pixelabs.net" target="_blank" rel="noopener" class="icon-link is-cta pixelabs-link" aria-label="PixeLabs website" title="PixeLabs">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" style="filter: drop-shadow(0 0 8px rgba(0,240,255,0.8));">
           <defs>
             <linearGradient id="pxl-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -94,8 +220,8 @@
        ======================================================== -->
   <section class="hero">
     <div class="wrap">
-      <h1 class="wordmark wm-duotone" aria-label="Shrinkray">
-        <span class="d-shrink">SHRINK</span><span class="d-ray">RAY</span>
+      <h1 class="wordmark wm-duotone">
+        <span class="d-shrink">SHRINK</span><span class="d-ray">RAY</span><span class="visually-hidden"> Free video compressor</span>
       </h1>
 
       <span class="hero-tag mono">
@@ -105,10 +231,10 @@
 
       <div class="hero-rule" aria-hidden="true"></div>
 
-      <p class="hero-sub">Fast, hardware-accelerated video compression in your browser.</p>
+      <p class="hero-sub">Free video compressor: hit the file size you need, in your browser.</p>
       <p class="hero-lede">
-        Reduce large video files to your target size in seconds with high fidelity.
-        Processed entirely on your device with zero cloud uploads.
+        Get a big clip under the limit for chat, social or email: 10, 16 or 20 MB, or any size you type.
+        Hardware-accelerated, and processed entirely on your device with zero cloud uploads.
       </p>
 
       <div class="hero-facts">
@@ -178,10 +304,12 @@
             </div>
               <p class="drop-title">Drop a video here</p>
               <p class="drop-sub">or click to pick one, or paste from clipboard</p>
-              <p class="drop-formats mono">MP4 · MOV · WebM · MKV · AVI · TS · M4V</p>
+              <p class="drop-formats mono">MP4 · MOV · WebM · MKV · TS · M4V</p>
             </div>
           </label>
-          <input type="file" id="file" accept="video/*,.mp4,.mov,.m4v,.webm,.mkv,.avi,.ts,.mts" class="visually-hidden">
+          <input type="file" id="file" accept="video/*,.mp4,.mov,.m4v,.webm,.mkv,.ts,.mts" class="visually-hidden">
+
+          <noscript><p class="notice"><strong>Shrinkray needs JavaScript.</strong> Compression runs in your browser, so turn JavaScript on to use it.</p></noscript>
 
           <p class="notice" id="unsupported" hidden>
             <strong>This browser does not support WebCodecs.</strong>
@@ -421,15 +549,15 @@
   <section class="section" id="why">
     <div class="wrap">
       <div class="section-head">
-        <h2>How video compression works</h2>
+        <h2>Why your video is too big to send</h2>
         <p class="sub">Cameras and screen recorders default to high bitrates that produce files too large for standard messaging limits.</p>
       </div>
       <div class="grid">
         <article class="card">
           <span class="num mono">01</span>
-          <h3>Uncompressed Bitrates</h3>
+          <h3>High Bitrates</h3>
           <p>
-            Default capture modes record excessive redundant visual data every second. While ideal for video production, the resulting files easily exceed transfer limits on most messaging apps and email.
+            Phones, cameras and screen recorders record at very high bitrates, so even a short clip can run to hundreds of megabytes. That is how a video ends up over the limit of most chat apps and email.
           </p>
         </article>
         <article class="card">
@@ -441,9 +569,9 @@
         </article>
         <article class="card">
           <span class="num mono">03</span>
-          <h3>Target Size Accuracy</h3>
+          <h3>Target Size Control</h3>
           <p>
-            Choose a target size, and the engine calculates optimal bitrate and resolution ladders, automatically running multi-pass refinement so your file consistently meets size limits.
+            Choose a target size and the engine works out a bitrate and resolution that should fit it, then re-encodes up to three times if the first try lands over. A very long or busy video may still need a lower resolution or frame rate.
           </p>
         </article>
       </div>
@@ -469,11 +597,49 @@
         </p>
 
         <div class="proof">
-          <h3>Open Source & Inspectable</h3>
+          <h3>Open Source &amp; Inspectable</h3>
           <p>
             Shrinkray is completely open source. Video streams are parsed, compressed, and downloaded directly in memory without transmitting file data. You can review the full client-side implementation in our <a href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener">GitHub repository</a>.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FAQ (mirrored exactly in the FAQPage JSON-LD in <head>)
+       ======================================================== -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Video compression questions</h2>
+        <p class="sub">Straight answers about sizes, formats and privacy.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>How do I compress a video to 16 MB, 25 MB or 8 MB?</h3>
+          <p>Drop your video in, stay on "Fit a size", and pick a preset (Chat 10 MB, Social 16 MB, Email 20 MB or Web 100 MB) or type any number into the size box, such as 8 or 25. Shrinkray picks a bitrate and resolution to land under that size, and re-encodes up to three times if the first try comes out over. The target has to be smaller than your original file.</p>
+        </article>
+        <article class="card">
+          <h3>Can I compress a video for WhatsApp, Discord or email?</h3>
+          <p>Yes. Pick the size limit of the app you are sending to. Those limits change by app and plan, so check the current number first. The result is an H.264 MP4 by default, which is what most messaging apps expect.</p>
+        </article>
+        <article class="card">
+          <h3>Is my video uploaded anywhere?</h3>
+          <p>No. The video is read, compressed and saved on your own device, using your browser's built-in video encoders. The only requests the page makes go to an anonymous counter (CounterAPI) that tallies how many videos have been shrunk, and they carry no video data or file details. The <a href="privacy.html">Privacy page</a> has the full detail.</p>
+        </article>
+        <article class="card">
+          <h3>What video formats can I use?</h3>
+          <p>MP4, MOV, M4V, WebM, MKV and MPEG-TS files can go in, as long as your browser can decode the video inside them. An MP4 comes out. It is H.264 by default, with H.265, AV1 and VP9 as options when your browser can encode them.</p>
+        </article>
+        <article class="card">
+          <h3>Will compressing hurt the quality?</h3>
+          <p>Making a video smaller always throws away some detail. For tight targets Shrinkray lowers the resolution so the bitrate goes further, and you can set resolution, frame rate and sound yourself, or switch to "Pick a quality" and choose from five levels. Watch the result before you delete the original.</p>
+        </article>
+        <article class="card">
+          <h3>Is it free, and which browsers work?</h3>
+          <p>Yes. It is free and open source under the MIT license, with no account to make. It needs a browser that supports WebCodecs: Chrome, Edge or Brave 94 and up, Safari 16.4 and up, or Firefox 130 and up. Everything is processed in memory, so very large files also depend on how much memory your device has.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -512,10 +678,10 @@
               Visit mediabunny.dev
             </a>
             <a class="btn" href="https://github.com/Vanilagy/mediabunny" target="_blank" rel="noopener">
-              Give it a star
+              Give it a star<span class="visually-hidden"> on GitHub (Mediabunny)</span>
             </a>
             <a class="btn" href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener">
-              Drop us one too
+              Drop us one too<span class="visually-hidden"> (Shrinkray on GitHub)</span>
             </a>
           </div>
         </div>
@@ -533,7 +699,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="https://github.com/thepixelabs/shrinkray" target="_blank" rel="noopener">GitHub</a>
       <a href="https://pixelabs.net" target="_blank" rel="noopener">PixeLabs</a>
-      <a href="https://github.com/thepixelabs/shrinkray/blob/master/LICENSE" target="_blank" rel="noopener">MIT</a>
+      <a href="https://github.com/thepixelabs/shrinkray/blob/master/LICENSE" target="_blank" rel="noopener" aria-label="MIT license">MIT</a>
     </nav>
   </div>
 </footer>
@@ -546,7 +712,7 @@
       <rect x="4" y="4" width="40" height="40" rx="4" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="6 6"/>
       <path d="M24 14V34M16 26L24 34L32 26" stroke="var(--pink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <h2 class="mono">Drop to Replace Video</h2>
+    <p class="mono">Drop to Replace Video</p>
   </div>
 </div>
 

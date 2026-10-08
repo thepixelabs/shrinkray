@@ -2,7 +2,7 @@
 
 **Last updated: 6 September 2026**
 
-Hey there! Welcome to Shrinkray, a little tool we built to make videos smaller without the hassle of uploading them. By using the site at `https://thepixelabs.github.io/shrinkray`, you're agreeing to these simple rules.
+Hey there! Welcome to Shrinkray, a little tool we built to make videos smaller without the hassle of uploading them. By using the site at `https://shrinkray.pixelabs.net`, you're agreeing to these simple rules.
 
 ## 1. How it works
 

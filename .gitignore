@@ -5,3 +5,9 @@ node_modules/
 
 # Internal — not for the public repo
 legal/RISK-MEMO.md
+
+# Hidden folders and tool state (.claude/, agent memory, editors)
+.*/
+.claude*
+.env
+.env.*

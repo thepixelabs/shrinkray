@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+# Dev tooling and legal markdown sources: not pages for search results.
+Disallow: /tools/
+Disallow: /legal/
+
+Sitemap: https://shrinkray.pixelabs.net/sitemap.xml
